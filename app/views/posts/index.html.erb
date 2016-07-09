@@ -1,0 +1,17 @@
+<div data-role="page">
+    <!-- 로고 -->
+    <div data-role="header">
+        <h1 class="logo" style="font-size:15px; font-weight:600;">AfterSquat</h1>
+    </div> 
+    <!--사진과 내용-->
+    <div  data-role="content">
+        <% @posts.each do |post| %>
+            <%=link_to (image_tag post.image.url(:medium), class:'img-responsive'), post_path(post)%>
+            <%=post.content%>
+        <%end%>
+    </div>
+    <!--하단버튼-->
+    <div data-role="footer" data-position="fixed">
+      <%= link_to "Logout", destroy_user_session_path, method: :delete %>
+    </div>
+</div>
